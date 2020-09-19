@@ -11,5 +11,3 @@ Run `./bootstrap`
 Run `./bbb-scraper -s mo -c "saint louis"`
 
 It's not recommended to try and scrape large datasets (i.e. a-z) as it will cause burden to the site and likely you will get rate limited.
-
-*After initial use you will need to run `source set_env` in this directory to reset the environment.*
