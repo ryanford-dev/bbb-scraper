@@ -1,0 +1,21 @@
+#!/bin/bash
+
+export PROJECT_ROOT=${PWD}
+export LUA_MODULES=${PROJECT_ROOT}/lua_modules
+
+# build lua
+cd ${PROJECT_ROOT}/build/lua-5.3.6
+make linux INSTALL_TOP=${LUA_MODULES} && \
+make install INSTALL_TOP=${LUA_MODULES}
+
+# build luarocks
+cd ../luarocks-3.3.1
+./configure --prefix=${LUA_MODULES} --lua-version=5.3 --with-lua-bin=${LUA_MODULES}/bin --with-lua=${LUA_MODULES} && \
+make && \
+make install
+
+cd ${PROJECT_ROOT}
+
+source ${PROJECT_ROOT}/set_env
+
+luarocks --tree lua_modules install --only-deps bbb-scraper-dev-1.rockspec

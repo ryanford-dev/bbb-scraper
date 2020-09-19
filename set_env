@@ -1,0 +1,7 @@
+unset LUA_PATH LUA_CPATH
+
+export PROJECT_ROOT=${PWD}
+export LUA_MODULES=${PROJECT_ROOT}/lua_modules
+export LUA_PATH="${LUA_MODULES}/share/lua/5.3/?.lua;./?.lua;./?/init.lua;${LUA_MODULES}/share/lua/5.3/?/init.lua"
+export LUA_CPATH="./?.so;${LUA_MODULES}/lib/lua/5.3/?.so"
+export PATH="${LUA_MODULES}/bin:${PATH}"
